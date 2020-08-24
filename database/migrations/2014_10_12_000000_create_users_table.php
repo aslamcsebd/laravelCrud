@@ -22,6 +22,14 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+       
+		DB::table('users')->insert([
+			'name' => 'Admin',
+			'email' => 'admin@gmail.com',
+			'email_verified_at' => now(),
+			'password' => Hash::make('123456789'),
+			'remember_token' => '',
+		]);
     }
 
     /**

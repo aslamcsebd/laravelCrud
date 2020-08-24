@@ -15,7 +15,7 @@ class CreateJobTypesTable extends Migration
     {
         Schema::create('job_types', function (Blueprint $table) {
             $table->id();
-            $table->string('position');
+            $table->string('position')->unique();
             $table->timestamps();
         });
     }

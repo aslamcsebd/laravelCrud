@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Faker\Factory;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateSalariesTable extends Migration
 {
@@ -20,6 +21,21 @@ class CreateSalariesTable extends Migration
             $table->string('salary');                     
             $table->timestamps();
         });
+
+		$faker = Factory::create();
+		for($i=1; $i<=10; $i++){
+			$position = $faker->jobTitle;
+
+			DB::table('salaries')->insert([
+				'employee_id' => $i,
+				'position' => $position,
+				'salary' => rand(50000, 80000)
+			]);
+
+			DB::table('job_types')->insertOrIgnore([
+				'position' => $position,
+			]);
+		}
     }
 
     /**

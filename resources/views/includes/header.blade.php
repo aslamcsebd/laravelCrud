@@ -2,7 +2,7 @@
    <nav class="navbar navbar-expand-md navbar-light shadow-sm">
         
       <a class="navbar-brand" href="{{ url('/home') }}">
-         {{ config('app.name', 'None') }}
+         Management software
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
          <span class="navbar-toggler-icon"></span>
@@ -12,9 +12,12 @@
          <!-- Left Side Of Navbar -->
          @auth
             <ul class="navbar-nav all-item m-auto">
-               <li class="nav-item">
-                  <a class="nav-link btn btn-sm btn-info text-light tn-outline-success" href="{{ url('employee') }}">Add Employee</a>
-               </li>
+				<li class="nav-item">
+					<a class="nav-link btn btn-sm btn-info text-light tn-outline-success" href="{{ url('/home') }}">Employee list</a>
+				 </li>
+				 <li class="nav-item">
+					<a class="nav-link btn btn-sm btn-info text-light tn-outline-success" href="{{ url('employee') }}">Add Employee</a>
+				 </li>
                <li class="nav-item">
                   <a class="nav-link btn btn-sm btn-info text-light tn-outline-success" href="{{ url('salary') }}">Add Salary</a>
                </li>

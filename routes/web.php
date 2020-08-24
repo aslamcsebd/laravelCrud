@@ -2,13 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
+Route::get('/', 'EmployeeController@index')->name('home');
 Route::get('/home', 'EmployeeController@index')->name('home');
 
 Route::get('employee', 'EmployeeController@employee')->name('employee');
@@ -25,5 +21,3 @@ Route::post('add_Job', 'EmployeeController@add_Job')->name('add_Job');
 Route::get('job_delete/{id}', 'EmployeeController@job_delete')->name('job_delete');
 
 Route::get('printPDF', 'PdfMaker@printPDF')->name('printPDF');
-
-

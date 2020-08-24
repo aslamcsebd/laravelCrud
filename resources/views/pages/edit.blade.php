@@ -53,7 +53,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Present Position') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" value="{{ $Salary->position }}" required autocomplete="email" readonly>
+                                <input id="email" type="email" class="form-control" value="{{ $position = $Salary->position }}" required autocomplete="email" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -62,13 +62,11 @@
                               <select name="position" class="form-control">
                                     <option value="">Select Position</option>
                                     @foreach($JobTypes as $JobType)
-                                       <option value="{{$JobType->position}}">{{ $JobType->position }}</option>
+                                       <option value="{{$JobType->position}}" {{$JobType->position == $position ? 'selected' : '' }}>{{ $JobType->position }}</option>
                                     @endforeach
                                  </select>                               
                             </div>
                         </div>
-
-
 
                         <div class="form-group row">
                             <label for="salary" class="col-md-4 col-form-label text-md-right">{{ __('Salary') }}</label>
